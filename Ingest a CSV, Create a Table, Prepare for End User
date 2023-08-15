@@ -1,0 +1,22 @@
+create database Projects
+USE Projects;
+
+CREATE TABLE UserData (
+    ID INT PRIMARY KEY,
+    Name NVARCHAR(100),
+    Age INT,
+    Location NVARCHAR(100)
+);
+/* Create a View*/
+CREATE VIEW UserView AS
+SELECT ID, Name, Age, Location
+FROM UserData;
+/* Create a Stored Procedure*/
+CREATE PROCEDURE GetUsers
+AS
+BEGIN
+    SELECT ID, Name, Age, Location
+    FROM UserData;
+END;
+/*Create permission for end users*/
+GRANT SELECT ON UserView TO YourUserName;
